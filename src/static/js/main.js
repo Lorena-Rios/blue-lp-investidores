@@ -36,7 +36,7 @@ document.querySelectorAll(".form-cadastro").forEach((form) => {
 
     const formData = new FormData(this);
 
-    formData.set("empreendimento", "Blue GraÃ§a");
+    formData.set("empreendimento", "Blue Graça");
 
     formData.set("communications", true);
 
