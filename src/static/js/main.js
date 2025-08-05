@@ -34,9 +34,6 @@ document.querySelectorAll(".form-cadastro").forEach((form) => {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    form.querySelector(".text-form").classList.add("hidden");
-    form.querySelector(".load-form").classList.remove("hidden");
-
     const formData = new FormData(this);
 
     formData.set("empreendimento", "Blue GraÃ§a");
@@ -75,8 +72,6 @@ document.querySelectorAll(".form-cadastro").forEach((form) => {
       .then((response) => response.text())
       .then((res) => {
         console.log(res);
-        form.querySelector(".text-form").classList.remove("hidden");
-        form.querySelector(".load-form").classList.add("hidden");
         if (
           formData.get("interesse").toUpperCase() == "BAIXAR BOOK" ||
           formData.get("interesse").toUpperCase().includes("BOOK")
