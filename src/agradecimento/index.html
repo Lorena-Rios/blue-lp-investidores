@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Riviera - Praia do Forte</title>
+    <meta
+      name="description"
+      content="Vem aí, um dos últimos empreendimentos pé na areia de Praia do Forte."
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@11/swiper-bundle.min.css"
+    />
+    <link href="https://fonts.cdnfonts.com/css/rawline" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-WS5KT5NN");
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+  <body class="h-full w-full m-0 p-0 overflow-hidden">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-WS5KT5NN"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <section class="relative h-screen w-screen overflow-hidden flex items-center justify-center">
+      <!-- Background Image -->
+      <img
+        src="../static/images/bg.jpg"
+        alt="Background Image"
+        class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+      />
+
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-black bg-opacity-20 z-10 backdrop-blur-sm"></div>
+
+      <!-- Conteúdo centralizado -->
+      <div class="relative z-20 flex flex-col items-center text-center px-4 w-full max-w-2xl gap-4 md:gap-6">
+        <h1 class="text-white text-2xl md:text-5xl uppercase font-sullivan">
+          Obrigado por se cadastrar!
+        </h1>
+        <p class="text-white text-base md:text-xl font-grotesque">
+          Em breve um dos nossos especialistas entrará em contato.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 w-full">
+          <a
+            id="back-btn"
+            href="../index.html"
+            class="w-1/2 bg-green-800 text-white text-sm md:text-base py-3 rounded hover:bg-green-900 transition uppercase"
+          >
+            Voltar
+          </a>
+        </div>
+      </div>
+    </section>
+
+    
+
+
+  
+  </body>
+</html>
