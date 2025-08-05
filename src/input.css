@@ -3,6 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap');
+
+
+@font-face {
+  font-family: 'Sullivan';
+  src: url('/src/static/fonts/Sullivan.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 
 .ease-in-out {

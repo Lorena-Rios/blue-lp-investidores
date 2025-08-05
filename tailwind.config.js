@@ -8,7 +8,9 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Rawline', 'sans-serif'], // usa "Rawline" como sans
-        rawline: ['Rawline', 'sans-serif'] // opcional, alias dedicado
+        rawline: ['Rawline', 'sans-serif'], // opcional, alias dedicado
+        grotesque: ['Darker Grotesque', 'sans-serif'], // novo alias para "Darker Grotesque"
+        sullivan: ['Sullivan', 'sans-serif'],  // 'Sullivan' 
       },
     },
   },

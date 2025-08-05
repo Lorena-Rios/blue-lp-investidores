@@ -18,6 +18,7 @@
       href="https://unpkg.com/swiper@11/swiper-bundle.min.css"
     />
     <link href="https://fonts.cdnfonts.com/css/rawline" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <!-- Google Tag Manager -->
@@ -46,6 +47,86 @@
       ></iframe
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
+<section class="relative w-screen min-h-screen overflow-hidden flex">
+  <!-- Background -->
+  <img
+    src="static/images/bg.jpg"
+    alt="Background"
+    class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+  />
+
+
+  <div class="flex flex-col lg:flex-row lg:items-center lg:justify-center gap-x-16 w-full min-h-screen bg-cover bg-center relative" style="background-image: url('static/images/background.jpg');">
+
+    <div class="relative z-20 flex flex-col lg:flex-row w-full h-full"
+          data-aos="fade-down"
+          data-aos-delay="500"    
+    >
+      <!-- BLOCO DE TEXTO -->
+      <div class="flex flex-col justify-start w-full lg:w-1/2 px-8 lg:px-16 text-white pt-12 lg:pt-16">
+        <img src="static/images/LOGO BLUE.svg" alt="Logo Blue Graça" class="w-36 md:w-48 lg:w-64 mb-8" />
+        <h2 class="text-3xl lg:text-5xl mb-4 uppercase font-sullivan">
+          Oportunidade Exclusiva de Investimento na Graça
+        </h2>
+        <p class="text-lg lg:text-3xl font-grotesque">
+          2 suítes de alto padrão, na localização mais desejada de Salvador.
+        </p>
+        <p class="text-lg lg:text-3xl font-bold font-grotesque">
+          Segurança, conforto e alto potencial de valorização.
+        </p>
+      </div>
+
+      <!-- bloco de formulario -->
+      <div class="relative z-10 bg-white/80 backdrop-blur-sm shadow-lg px-8 py-10 w-11/12 md:w-8/12 lg:w-5/12 xl:w-4/12 mx-auto my-12 lg:my-auto sm:mt-12"
+          data-aos="fade-up"
+          data-aos-delay="500"
+      >
+        <h3 class="text-left text-2xl md:text-4xl font-medium text-green-900 mb-4 font-sullivan uppercase">
+          Quer falar com um especialista sobre investimento imobiliário?
+        </h3>
+        <p class="text-left text-lg lg:text-xl mb-6 text-green-900 font-grotesque">
+          Preencha o formulário abaixo e fale com um especialista agora mesmo:
+        </p>
+
+        <form id="form-cadastro">
+          <input 
+            type="text"
+            id="nome"      
+            placeholder="NOME*"
+            class="w-full mb-4 px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-700 font-grotesque text-base md:text-xl" />
+
+          <input 
+            type="email"
+            id="email"
+            placeholder="E-MAIL*"
+            class="w-full mb-4 px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-700 font-grotesque text-base md:text-xl" />
+
+          <input 
+            type="tel"
+            id="telefone"
+            placeholder="CELULAR*"
+            class="w-full mb-4 px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-700 font-grotesque text-base md:text-xl" />
+
+          <p class="text-xs text-gray-600 mb-4">
+            Ao informar meus dados, eu concordo com a <a href="#" class="underline text-green-700">Política de Privacidade</a>.
+          </p>
+
+          <button type="submit"
+            class="w-full bg-green-800 text-white text-sm md:text-base py-3 rounded hover:bg-green-900 transition uppercase">
+            Fale com um especialista
+          </button>
+
+          <p class="text-xs text-gray-600 mt-4">
+            Para melhor atendê-lo, enviaremos mais informações sobre os nossos produtos, nos canais de comunicação acima disponibilizados.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
