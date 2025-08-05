@@ -34,120 +34,65 @@ document.querySelectorAll(".form-cadastro").forEach((form) => {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    let textForm = form.querySelector(".text-form");
-    if (textForm) {
-      form.querySelector(".text-form").classList.add("hidden");
+    form.querySelector(".text-form").classList.add("hidden");
+    form.querySelector(".load-form").classList.remove("hidden");
+
+    const formData = new FormData(this);
+
+    formData.set("empreendimento", "Blue GraÃ§a");
+
+    formData.set("communications", true);
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+
+    var utm_source = "direct";
+    var utm_medium = "direct";
+    var utm_campaign = "direct";
+
+    if (urlParams) {
+      if (urlParams.get("utm_source")) {
+        utm_source = urlParams.get("utm_source");
+      }
+      if (urlParams.get("utm_medium")) {
+        utm_medium = urlParams.get("utm_medium");
+      }
+      if (urlParams.get("utm_campaign")) {
+        utm_campaign = urlParams.get("utm_campaign");
+      }
     }
 
-    let loadForm = form.querySelector(".load-form");
-    if (loadForm) {
-      form.querySelector(".load-form").classList.remove("hidden");
-    }
+    utm_source = utm_source + (this.getAttribute("data-zap") ? "_zap" : "");
 
-    var formData = new FormData(this);
-    var jsonData = Object.fromEntries(formData.entries());
+    formData.set("origem", utm_source);
+    formData.set("campanha", utm_campaign);
+    formData.set("meio", utm_medium);
 
-    if (!jsonData["email"]) {
-      var telefoneNumerico = jsonData["telefone"].replace(/\D/g, "");
-      jsonData["email"] = `${telefoneNumerico}@sememail.com`;
-    }
-
-    jsonData["empreendimento"] = "Blue Graça";
-    jsonData["communications"] = true;
-
-    var queryString = window.location.search;
-    var urlParams = new URLSearchParams(queryString);
-
-    var isZap = !!this.getAttribute("data-zap");
-
-    jsonData["origem"] = urlParams.get("utm_source") || "direct";
-    jsonData["meio"] = urlParams.get("utm_medium") || "direct";
-    jsonData["campanha"] = urlParams.get("utm_campaign") || "direct";
-    jsonData["origem"] += this.getAttribute("data-zap") ? "_zap" : "";
-
-    fetch("", {
+    fetch("https://acheiinterativa.com.br/portal/cadastro/blue-graca.php", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(jsonData),
+      body: formData,
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Erro na requisiÃ§Ã£o: ${response.statusText}`);
-        }
-        return response.text();
-      })
+      .then((response) => response.text())
       .then((res) => {
-        if (textForm) {
-          form.querySelector(".text-form").classList.remove("hidden");
-        }
-
-        if (loadForm) {
-          form.querySelector(".load-form").classList.add("hidden");
-        }
-
-        if (isZap) {
-          let dataJson = "";
-
-          try {
-            dataJson = JSON.parse(res);
-
-            if (dataJson && dataJson.wpp_link) {
-              window.location.href = `${dataJson.wpp_link}`;
-            }
-          } catch (error) {
-            window.location.href = `./agradecimento`;
-          }
+        console.log(res);
+        form.querySelector(".text-form").classList.remove("hidden");
+        form.querySelector(".load-form").classList.add("hidden");
+        if (
+          formData.get("interesse").toUpperCase() == "BAIXAR BOOK" ||
+          formData.get("interesse").toUpperCase().includes("BOOK")
+        ) {
+          window.location.href = `./agradecimento/${queryString}${
+            queryString ? "&book=sim" : "?book=sim"
+          }`;
+        } else if (
+          formData.get("interesse").toUpperCase() == "BAIXE A PLANTA"
+        ) {
+          window.location.href = `./agradecimento/${queryString}${
+            queryString ? "&book=sim" : "?planta=sim"
+          }`;
         } else {
-          if (
-            jsonData["interesse"].toUpperCase() === "BAIXAR BOOK" ||
-            jsonData["interesse"].toUpperCase().includes("BOOK")
-          ) {
-            window.location.href = `./agradecimento/${queryString}${
-              queryString ? "&book=sim" : "?book=sim"
-            }`;
-          } else if (jsonData["interesse"].toUpperCase() === "BAIXE A PLANTA") {
-            window.location.href = `./agradecimento/${queryString}${
-              queryString ? "&book=sim" : "?planta=sim"
-            }`;
-          } else {
-            window.location.href = `./agradecimento/${queryString}`;
-          }
-        }
-      })
-      .catch((error) => {
-        alert("Ocorreu um erro ao enviar o formulário. Tente novamente.");
-        console.log(error);
-
-        if (textForm) {
-          form.querySelector(".text-form").classList.remove("hidden");
-        }
-
-        if (loadForm) {
-          form.querySelector(".load-form").classList.add("hidden");
+          window.location.href = `./agradecimento/${queryString}`;
         }
       });
   });
 });
-
-function returnHome() {
-  let a = document.querySelector("#return-site");
-
-  if (a) {
-    let queryString = window.location.search;
-    let urlParams = new URLSearchParams(queryString);
-    if (urlParams.has("book")) {
-      urlParams.delete("book");
-
-      var newQueryString = urlParams.toString();
-      var updatedQueryString = newQueryString ? `?${newQueryString}` : "";
-      var updatedUrlParams = new URLSearchParams(newQueryString);
-
-      queryString = updatedQueryString;
-      urlParams = updatedUrlParams;
-    }
-    a.href = `../${queryString}`;
-  }
-}
-returnHome();
